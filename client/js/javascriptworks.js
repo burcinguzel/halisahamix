@@ -1,3 +1,11 @@
+$("textarea").keydown(function(e){
+    if(e.keyCode == 13 && $(this).val().split("\n").length >= $(this).attr("rows")) 
+            return false;
+        
+});
+
+
+
 var orderState  = 0;
 $("#btn222").click(function() {
   $("#inpDef").attr("rows","4");
