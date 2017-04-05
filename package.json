@@ -1,0 +1,11 @@
+{
+  "name": " hali-saha-mix",
+  "version": "1.0.0",
+  "description": " hali-saha-mix",
+  "main": "server.js",
+  "repository": "",
+  "author": "burcinguzel@null.net>",
+  "dependencies": {
+    "express": "~3.2.4"
+  }
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Halı Saha Mix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 60px;
+        text-align:center;
+      }
+      .container-fluid{
+        margin-left:10%;
+      }
+      textarea {
+        resize:none;
+         max-width:200px;
+      }
+      svc {
+        margin-top:20px;
+      }
+      button{
+        margin-top:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+  <h1>Halı Saha Takım Oluşturma</h1>
+  
+  <p>Takımlar 2-2-2 düzeninde oluşturulur.</p>
+  <p>Aşağıdaki boşluklara kişi isimlerini her biri bir satır olacak şekilde yaz.</p>
+  <p>Hazırla butonuna bastığında yanda takımların düzenini gör.</p>
+</div>
+
+  <div class="container-fluid">
+     <div class="row">
+       <div class="col col-sm-4" >
+          <div class="container">
+            <div>Kaleciler:</div><textarea class="form-control" id="inpGK" rows="2" required></textarea>
+          </div>
+          <div class="container">
+            <div>Defanslar:</div><textarea class="form-control" id="inpDef" rows="4" required></textarea>
+          </div>
+           <div class="container">
+            <div>Orta Sahalar:</div><textarea class="form-control" id="inpMid" rows="4" required></textarea>
+          </div>   
+          <div class="container">
+            <div>Forvetler:</div><textarea class="form-control" id="inpFor" rows="4" required></textarea>
+          </div>
+          <button id="btnMix" class="btn btn-success">Hazırla</button>
+       </div>
+       <div class="col col-sm-5" >
+                  <svg id="svcField" height="360" width="640" >
+                    <image x="0" y="0" width="640" height="360"
+                       xlink:href="/img/field.jpg" />
+                 </svg>
+       </div>
+       
+     </div>
+  </div>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/javascriptworks.js"></script>
+
+  </body>
+</html>
