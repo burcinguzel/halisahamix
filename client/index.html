@@ -3,7 +3,10 @@
   <head>
     <title>Halı Saha Mix</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <style>
       body {
         padding-top: 60px;
@@ -30,14 +33,18 @@
   <body>
     <div class="container heading">
       <h1>Halı Saha Takım Oluşturma</h1>
-      <p>Takımlar 2-2-2 düzeninde oluşturulur.</p>
       <p>Aşağıdaki boşluklara kişi isimlerini her biri bir satır olacak şekilde yaz.</p>
-      <p>Hazırla butonuna bastığında yanda takımların düzenini gör.</p>
+      <p>Hazırla butonuna bas, yanda takımların düzenini gör.</p>
     </div>
 
   <div class="container-fluid">
      <div class="row">
        <div class="col col-sm-4" >
+                  <div class="btn-group" data-toggle="buttons">
+                    <button class="btn btn-danger " id="btn222" >2-2-2 </button>
+                    <button class="btn btn-success " id="btn321" >3-2-1 </button>
+                    <button class="btn btn-success " id="btn231" >2-3-1 </button>
+                  </div>
           <div class="container">
             <div>Kaleciler:</div><textarea class="form-control" id="inpGK" rows="2" required></textarea>
           </div>
