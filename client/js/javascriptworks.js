@@ -6,6 +6,10 @@ $("#btn222").click(function() {
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
   orderState=0;
+  $("#spGK").text("(2 kişi)");
+   $("#spDef").text("(4 kişi)");
+    $("#spMid").text("(4 kişi)");
+     $("#spFor").text("(4 kişi)");
 });
 $("#btn321").click(function() {
   $("#inpDef").attr("rows","6");
@@ -14,6 +18,10 @@ $("#btn321").click(function() {
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
   orderState=1;
+  $("#spGK").text("(2 kişi)");
+   $("#spDef").text("(6 kişi)");
+    $("#spMid").text("(4 kişi)");
+     $("#spFor").text("(2 kişi)");
 });
 $("#btn231").click(function() {
   $("#inpDef").attr("rows",4);
@@ -22,6 +30,10 @@ $("#btn231").click(function() {
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
   orderState=2;
+  $("#spGK").text("(2 kişi)");
+   $("#spDef").text("(4 kişi)");
+    $("#spMid").text("(6 kişi)");
+     $("#spFor").text("(2 kişi)");
 });
 
 
