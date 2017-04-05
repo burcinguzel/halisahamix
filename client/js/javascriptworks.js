@@ -1,5 +1,13 @@
 $("textarea").keydown(function(e){
-    if(e.keyCode == 13 && $(this).val().split("\n").length >= $(this).attr("rows")) 
+    var KN;
+      if(window.event) {
+          KN = e.keyCode;
+        // Netscape/Firefox/Opera
+        } else if(e.which) {
+          KN = e.which;
+        }
+
+    if(KN == 13 && $(this).val().split("\n").length >= $(this).attr("rows")) 
             return false;
         
 });
