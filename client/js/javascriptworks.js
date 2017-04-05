@@ -21,6 +21,7 @@ $("#btn222").click(function() {
   $("#inpFor").attr("rows","4");
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
+  $(".jokerCont").hide();
   orderState=0;
   $("#spGK").text("(2 kişi)");
    $("#spDef").text("(4 kişi)");
@@ -33,6 +34,7 @@ $("#btn321").click(function() {
   $("#inpFor").attr("rows","2");
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
+    $(".jokerCont").hide();
   orderState=1;
   $("#spGK").text("(2 kişi)");
    $("#spDef").text("(6 kişi)");
@@ -45,13 +47,40 @@ $("#btn231").click(function() {
   $("#inpFor").attr("rows",2);
   $(this).removeClass("btn-success").addClass("btn-danger");
   $(this).siblings().removeClass("btn-danger").addClass("btn-success");
+    $(".jokerCont").hide();
   orderState=2;
   $("#spGK").text("(2 kişi)");
    $("#spDef").text("(4 kişi)");
     $("#spMid").text("(6 kişi)");
      $("#spFor").text("(2 kişi)");
 });
+$("#btn2211").click(function() {
+  $("#inpDef").attr("rows",4);
+  $("#inpMid").attr("rows",4);
+  $("#inpFor").attr("rows",2);
+  $(".jokerCont").show( "slow" );
+  $(this).removeClass("btn-success").addClass("btn-danger");
+  $(this).siblings().removeClass("btn-danger").addClass("btn-success");
+  orderState=3;
+  $("#spGK").text("(2 kişi)");
+   $("#spDef").text("(4 kişi)");
+    $("#spMid").text("(4 kişi)");
+     $("#spFor").text("(2 kişi)");
+});
 
+$("#btn3111").click(function() {
+  $("#inpDef").attr("rows",6);
+  $("#inpMid").attr("rows",2);
+  $("#inpFor").attr("rows",2);
+  $(".jokerCont").show( "slow" );
+  $(this).removeClass("btn-success").addClass("btn-danger");
+  $(this).siblings().removeClass("btn-danger").addClass("btn-success");
+  orderState=4;
+  $("#spGK").text("(2 kişi)");
+   $("#spDef").text("(6 kişi)");
+    $("#spMid").text("(2 kişi)");
+     $("#spFor").text("(2 kişi)");
+});
 
 var svg = d3.select("#svcField").append("g");
 var kadrolar ={}
@@ -85,8 +114,33 @@ $("#btnMix").click(function(){
                     [170,370,kadrolar.forvetler[1]], 
                     [60,450,kadrolar.ortasahalar[3]],  [170,450,kadrolar.ortasahalar[4]],[280,450,kadrolar.ortasahalar[5]],
                     [100,530,kadrolar.defanslar[2]], [240,530,kadrolar.defanslar[3]],
-                    [170,608,kadrolar.kaleciler[1]]],
-                    ];
+                    [170,608,kadrolar.kaleciler[1]]
+                    ]];
+ if(orderState >2)
+    fieldOrder.push(
+                    [[170,32,kadrolar.kaleciler[0]],
+                    [100,100,kadrolar.defanslar[0]], [240,100,kadrolar.defanslar[1]],
+                    [60,180,kadrolar.ortasahalar[0]],  [280,180,kadrolar.ortasahalar[1]], 
+                    [170,220,kadrolar.forvetArkasi[0]],
+                    [170,280,kadrolar.forvetler[0]],
+                    [170,350,kadrolar.forvetler[1]],
+                    [170,410,kadrolar.forvetArkasi[1]],
+                    [60,460,kadrolar.ortasahalar[2]],  [280,450,kadrolar.ortasahalar[3]],
+                    [100,530,kadrolar.defanslar[2]], [240,530,kadrolar.defanslar[3]],
+                    [170,608,kadrolar.kaleciler[1]]
+                    ],
+                    [[170,32,kadrolar.kaleciler[0]],
+                    [60,100,kadrolar.defanslar[0]], [170,100,kadrolar.defanslar[1]], [280,100,kadrolar.defanslar[2]],  
+                    [170,180,kadrolar.ortasahalar[1]],
+                    [170,220,kadrolar.forvetArkasi[0]],
+                    [170,280,kadrolar.forvetler[0]],
+                    [170,350,kadrolar.forvetler[1]],
+                    [170,410,kadrolar.forvetArkasi[1]],
+                    [170,450,kadrolar.ortasahalar[1]],
+                    [60,530,kadrolar.defanslar[3]], [170,530,kadrolar.defanslar[4]], [280,530,kadrolar.defanslar[5]],
+                    [170,608,kadrolar.kaleciler[1]]
+                    ]
+                    );
                     
 var circle = svg.selectAll("circle")
     .data(fieldOrder[orderState]);
@@ -124,7 +178,10 @@ function createTeams(){
     karistir(kadrolar.ortasahalar);
     kadrolar.forvetler = $("#inpFor").val().split(/\n/); 
     karistir(kadrolar.forvetler);
-    
+    if($(".jokerCont").css("display") != "none"){
+         kadrolar.forvetArkasi = $("#inpAtMid").val().split(/\n/);
+         karistir(kadrolar.forvetArkasi);
+    }
  
 }
 
