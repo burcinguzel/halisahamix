@@ -153,17 +153,47 @@ class InputGroups extends React.Component{
 					.attr("cy", function(d, i) {return d[0]; })
 					.attr("cx", function(d, i) {return d[1]; })
 					.attr("r", function(d) { return 10; })
-					.style("fill",function(d,i){return (i>6)?"red":"blue";});
+					.style("fill",function(d,i){return (i>6)?"red":"blue";})
+					.attr("id",function(d,i){return "cId"+i;})
+					.call(d3.drag()
+				        .on("start", dragstarted)
+        				.on("drag", dragged)
+        				.on("end", dragended));
+
 
 				text.enter().append("text")
 					.attr("y", function(d, i) {return d[0]-10; })
 					.attr("x", function(d, i) {return d[1]-30; })
 					.style("font-size", "16px")
 					.style("fill",function(d,i){return (i>6)?"#fffffa":"#afffff";})
+					.attr("id",function(d,i){return "tId"+i;})
 					.text(function(d) {
 						  return d[2];
 						}); 
 		 d3.selectAll("button").attr("disabled","true");
+		 
+		function dragstarted(d) {
+			 d3.select(this).raise().classed("active", true);
+				}
+
+		function dragged(d) {
+			var that = "#tId"+d3.select(this).attr("id").split(/ /)[0].replace(/[^\d]/g, '');
+			if(d3.event.x < 320){
+				d3.select(this).style("fill","blue");
+				d3.select(that).style("fill","#afffff");
+			}
+			else{
+				d3.select(this).style("fill","red");
+				d3.select(that).style("fill","#fffffa");
+			}
+			 d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+			 d3.select(that).attr("x", d.x = (d3.event.x-30)).attr("y", d.y = (d3.event.y-10));
+
+		}
+			
+		function dragended(d) {
+			 d3.select(this).classed("active", false);
+			}
 
 		}
 
